@@ -8,3 +8,9 @@
 .footer {
   color: green;
 }
+
+.yearStyle {
+  margin-left: 2px;
+  color: gray;
+  font-size: 10px;
+}

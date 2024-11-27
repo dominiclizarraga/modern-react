@@ -4,11 +4,13 @@ import Footer from './components/Footer';
 
 
 function App() {
+    const currentYear = 2024;
+
     return (
         <>
-            <Header /> {/* Use the Header component here */}
+            <Header />
             <h1>Quotes App</h1>
-            <Footer className dynamicText="My quotes App"/> {/* Use the Header component here */}
+            <Footer className dynamicText="My quotes App" year={currentYear}/>
         </>
     );
 }

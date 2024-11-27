@@ -5,14 +5,18 @@ import PropTypes from "prop-types";
 function Footer(props) {
     const styles = {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
     }
 
     return (
         <>
             <div className="footer" style={styles}>
                 <h3>Footer!</h3>
-                <h3>{ props.dynamicText }</h3>
+                <div style={styles}>
+                    <h3>{ props.dynamicText  }</h3>
+                    <p className="yearStyle">{ props.year }</p>
+                </div>
             </div>
         </>
     );
@@ -20,7 +24,8 @@ function Footer(props) {
 
 
 Footer.propTypes = {
-    dynamicText: PropTypes.string
+    dynamicText: PropTypes.string,
+    year: PropTypes.number
 }
 
 export default Footer;
