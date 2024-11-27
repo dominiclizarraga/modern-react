@@ -24,3 +24,15 @@
   color: gray;
   font-size: 10px;
 }
+
+.quote {
+  /* margin-top: 100px;
+  margin-bottom: 100px; */
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  text-align: center;
+}
