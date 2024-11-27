@@ -116,11 +116,15 @@ fetchData1()
 
 export const asyncFetchData1 = async () => {
   try {
-    const resp = await fetch('https://api.example.com/data');
-    if (!resp.ok) {
-      throw new Error(`Response HTTP was not ok, it was ${resp.status}`)
+    const resp1 = await fetchData1()
+    if (!resp1.ok) {
+      throw new Error(`Response HTTP was not ok, it was ${resp1.status}`)
     }
-    const data = resp.json();
+    const resp2 = await fetchData2()
+    if (!resp2.ok) {
+      throw new Error(`Response HTTP was not ok, it was ${resp2.status}`)
+    }
+    const data = await resp2.json();
     return data
   } catch (error) {
     console.log(error);
