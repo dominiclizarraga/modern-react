@@ -1,5 +1,6 @@
-import './App.css';
-import logo from './assets/logo.png';
+// import React from 'react' THIS IS NOT NEEDED THIS TIME
+import '../App.css';
+import logo from '../assets/logo.png';
 
 function Header() {
     return (
