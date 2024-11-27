@@ -7,11 +7,6 @@ import Quoter from './components/Quoter';
 function App() {
     const currentYear = 2024;
 
-    // const bringQuote = () => {
-    //     console.log("here")
-    //     // triger a async function to fetch data.json
-    // }
-
     return (
         <>
             <Header />

@@ -20,7 +20,7 @@ function Quoter() {
         <>
             {currentQuote && (
                 <div className="quote">
-                    <p>'{currentQuote.quote}'</p>
+                    <p>{currentQuote.quote}</p>
                     <p>by: {currentQuote.author}</p>
                 </div>
             )}
