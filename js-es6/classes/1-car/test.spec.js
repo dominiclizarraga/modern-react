@@ -10,20 +10,18 @@ describe("Car", () => {
     expect(car).toBeInstanceOf(Object);
   });
 
-  test("debe tener los atributos correctos", () => {
-    test("Make debe ser el argumento que le pasamos", () => {
-      const car1 = new Car("Tesla");
-      const car2 = new Car("Toyota");
-      const car3 = new Car("Ford");
-      expect(car1.make).toEqual("Tesla");
-      expect(car2.make).toEqual("Toyota");
-      expect(car3.make).toEqual("Ford");
-    });
+  test("Make debe ser el argumento que le pasamos", () => {
+    const car1 = new Car("Tesla");
+    const car2 = new Car("Toyota");
+    const car3 = new Car("Ford");
+    expect(car1.make).toEqual("Tesla");
+    expect(car2.make).toEqual("Toyota");
+    expect(car3.make).toEqual("Ford");
+  });
 
-    test("Speed debe inicializar en 0", () => {
-      const car = new Car("Tesla");
-      expect(car.speed).toEqual(0);
-    });
+  test("Speed debe inicializar en 0", () => {
+    const car = new Car("Tesla");
+    expect(car.speed).toEqual(0);
   });
 
   test("No podemos modificar make y speed de manera directa", () => {
