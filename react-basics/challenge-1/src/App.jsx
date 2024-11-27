@@ -6,11 +6,16 @@ import Footer from './components/Footer';
 function App() {
     const currentYear = 2024;
 
+    const bringQuote = () => {
+        console.log("here")
+        // triger a async function to fetch data.json
+    }
+
     return (
         <>
             <Header />
-            <h1>Quotes App</h1>
-            <Footer className dynamicText="My quotes App" year={currentYear}/>
+            <button className="buttonStyles" onClick={ bringQuote }>Give me a new quote!</button>
+            <Footer dynamicText="My quotes App" year={currentYear}/>
         </>
     );
 }

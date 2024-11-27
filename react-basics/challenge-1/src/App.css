@@ -1,12 +1,22 @@
 #root {
-  max-width: 1280px;
+  width: 500px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 12rem; */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonStyles {
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 200px;
 }
 
 .footer {
-  color: green;
+  color: black;
+  border-top: solid;
 }
 
 .yearStyle {
