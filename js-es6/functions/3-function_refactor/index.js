@@ -114,18 +114,36 @@ fetchData1()
     throw error;
   });
 
-export const asyncFetchData1 = () => {
-  //tu codigo aqui
-};
-
-// crear una funcion para realizar fetch utilizando async await, debe recibir un string(url) retornar la respuesta o el error
-
-const fetcherFn = async (url) => {
+export const asyncFetchData1 = async () => {
   try {
-    const resp = await fetch(url)
-    const data = await resp.json()
+    const resp = await fetch('https://api.example.com/data');
+    if (!resp.ok) {
+      throw new Error(`Response HTTP was not ok, it was ${resp.status}`)
+    }
+    const data = resp.json();
     return data
   } catch (error) {
-    throw error
+    console.log(error);
+    throw error;
+  }
+};
+
+// crear una funcion para realizar fetch utilizando async await, 
+// debe recibir un string(url) retornar la respuesta o el error
+
+const fetcherFn = async (url) => {
+  if (typeof url !== 'string') {
+    throw new Error('URL must be a string');
+  }
+
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) {
+      throw new Error(`HTTP error status: ${response.status}`);
+    }
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    throw error;
   }
 };
