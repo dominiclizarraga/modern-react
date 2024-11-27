@@ -1,0 +1,16 @@
+{
+  "name": "add-status-to-students",
+  "version": "1.0.0",
+  "description": "#### ¿Aprobado o desaprobado?",
+  "main": "addStatusToStudents.js",
+  "scripts": {
+    "test": "jest",
+    "test:run": "jest",
+    "test:watch": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
