@@ -1,5 +1,7 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Form from './components/Form';
+
 
 import './App.css';
 
@@ -15,9 +17,15 @@ function App() {
         setQuote(data[randomNumber]);
     };
 
+    const handleAddQuote = (quote) => {
+        console.log(quote)
+    }
+
     return (
         <>
             <Header />
+
+            <Form handleAddQuote={handleAddQuote}/>
 
             <main>
                 <Quote quote={quote.quote} author={quote.author} />
