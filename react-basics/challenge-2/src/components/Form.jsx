@@ -18,7 +18,7 @@ function Form({handleAddQuote}) {
     // console.log(formData.get('author'))
     if (!formData.quote || !formData.author) {
       alert(`Fields cannot be empty!`)
-    } else{
+    } else {
       handleAddQuote(formData)
       setFormData({
         quote: '',
