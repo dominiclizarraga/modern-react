@@ -10,15 +10,18 @@ import Quote from './components/Quote';
 import { useState } from 'react';
 
 function App() {
-    const [quote, setQuote] = useState(data[0]);
+    const [quotes, setQuotes] = useState(data);
+    const [currentQuote, setCurrentQuote] = useState(data[0]);
 
     const setRandomQuote = () => {
-        const randomNumber = Math.floor(Math.random() * data.length);
-        setQuote(data[randomNumber]);
+        const randomNumber = Math.floor(Math.random() * quotes.length);
+        setCurrentQuote(quotes[randomNumber]);
     };
 
-    const handleAddQuote = (quote) => {
-        console.log(quote)
+    const handleAddQuote = (newQuote) => {
+        console.log("hola", newQuote)
+        setQuotes(prevQuotes => [...prevQuotes, newQuote]);
+        // setCurrentQuote(newQuote);
     }
 
     return (
@@ -28,9 +31,18 @@ function App() {
             <Form handleAddQuote={handleAddQuote}/>
 
             <main>
-                <Quote quote={quote.quote} author={quote.author} />
+                <Quote quote={currentQuote.quote} author={currentQuote.author} />
 
                 <button onClick={setRandomQuote}>Cambiar quote</button>
+
+                <div>
+                    <h3>All Quotes:</h3>
+                    {quotes.map((q, index) => (
+                        <div key={index}>
+                            {q.quote} - {q.author}
+                        </div>
+                    ))}
+                </div>
             </main>
 
             <Footer text="Mi App de quotes!" />
