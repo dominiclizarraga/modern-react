@@ -59,6 +59,29 @@ function App() {
         }
     };
 
+
+    const handleDeleteQuote = async (index) => {
+        try {
+            const quoteToDelete = quotes[index];
+            const response = await fetch(`http://localhost:3000/quotes/${quoteToDelete.id}`, {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete quote');
+            }
+
+            setQuotes(prevQuotes => prevQuotes.filter((_, i) => i !== index));
+
+            // If the deleted quote was the currently displayed one, show a random quote
+            if (quoteToDelete === currentQuote) {
+                setRandomQuote();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     if (!currentQuote) return <div>No quotes available</div>;
 
     return (
@@ -68,7 +91,7 @@ function App() {
             <main>
                 <Quote quote={currentQuote.quote} author={currentQuote.author} />
                 <button onClick={setRandomQuote}>Cambiar quote</button>
-                <QuoteList quotes={quotes} />
+                <QuoteList quotes={quotes} onDeleteQuote={handleDeleteQuote} />
             </main>
             <Footer text="Mi App de quotes!" />
         </>
