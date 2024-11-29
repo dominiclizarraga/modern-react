@@ -20,6 +20,10 @@ function Form({handleAddQuote}) {
       alert(`Fields cannot be empty!`)
     } else{
       handleAddQuote(formData)
+      setFormData({
+        quote: '',
+        author: ''
+      })
     }
   }
 
