@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { generatePrimes } from '../lib/utils';
 
 export default function ExpensiveCalculationComponent() {
@@ -8,7 +8,7 @@ export default function ExpensiveCalculationComponent() {
         <div className="rounded-lg border border-slate-400 mt-12 p-8 dark:border-slate-200">
             <h2 className="text-2xl font-bold text-center mb-6">Componente Pesado</h2>
             <p>
-                Este componente muestra un listado de números primos. Prueba clickear
+                Este componente muestra un listado de números primos. Prueba clickear
                 muchas veces en el botón de re-render para ver su efecto.{' '}
                 <strong>Debe ser optimizado!</strong>
             </p>
@@ -25,8 +25,8 @@ export default function ExpensiveCalculationComponent() {
 }
 
 function PrimeComponent() {
-    const primes = generatePrimes(50000);
-
+    const primes = useMemo(() => generatePrimes(50000), []);
+    console.log("render");
     return (
         <div>
             <h3 className="my-4 text-left">Numeros primos del 0 al 50000:</h3>
