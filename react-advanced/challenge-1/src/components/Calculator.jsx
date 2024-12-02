@@ -4,8 +4,12 @@ const initialState = {
     numA : 0,
     numB : 0,
     result : 0,
-
 }
+
+const RESTA = 'RESTA'
+const SUMA = 'SUMA'
+const MULTI = 'MULTI'
+const CLEAR = 'CLEAR'
 
 export default function Calculator() {
     // we will use useReduce which is for state/logic more complext, 
@@ -15,17 +19,17 @@ export default function Calculator() {
     function reducer(state, action) {
         switch (action.type) {
           case 'setNumA':
-            return { ...state, numA: action.payload };
+                return { ...state, numA: action.payload };
             case 'setNumB':
                 return { ...state, numB: action.payload };
-            case 'resta':
+            case RESTA:
                 return { ...state, result: state.numA - state.numB };
-            case 'multi':
+            case MULTI:
                 return { ...state, result: state.numA * state.numB };
-            case 'sum':
+            case SUMA:
                 return { ...state, result: state.numA + state.numB };
-            case 'clear':
-                    return { ...initialState };
+            case CLEAR:
+                return { ...initialState };
             default:
                 return state;
             }
@@ -54,26 +58,26 @@ export default function Calculator() {
                 <div className="flex justify-center gap-4 mt-4">
                     <button
                         // onClick={dispatch({ type: 'increment' })}
-                        onClick={() => dispatch({ type: 'sum' })}
+                        onClick={() => dispatch({ type: SUMA })}
                         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
                     >
                         Suma
                     </button>
                     <button
-                        onClick={() => dispatch({ type: 'resta' })}
+                        onClick={() => dispatch({ type: RESTA })}
                         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none"
                     >
                         Resta
                     </button>
                     <button
-                        onClick={() => dispatch({ type: 'multi' })}
+                        onClick={() => dispatch({ type: MULTI })}
                         className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
                     >
                         Multiplicación
                     </button>
 
                     <button
-                        onClick={() => dispatch({ type: 'clear' })}
+                        onClick={() => dispatch({ type: CLEAR })}
                         className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none"
                     >
                         clear
